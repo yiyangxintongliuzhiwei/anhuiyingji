@@ -1,0 +1,90 @@
+/**滚动条样式--chrome*/
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
+  background-color: transparent;
+}
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  //-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  border: none;
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  //-webkit-box-shadow: inset 0 0 4px rgba(1, 138, 219, .2);
+  // background-color: #d2d8dd;
+  background-color:rgba(250,250,250,0.4);
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-active {
+  padding-left: 10px;
+  opacity: 0;
+}
+
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+
+.bounce-leave-active {
+  animation: bounce-out 0.5s;
+}
+
+a {
+  color: #FFFFFF;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+a:link {
+  text-decoration: none;
+  /* 指正常的未被访问过的链接*/
+}
+
+a:visited {
+  text-decoration: none;
+  /*指已经访问过的链接*/
+}
+
+a:hover {
+  text-decoration: none;
+  /*指鼠标在链接*/
+}
+
+a:active {
+  text-decoration: none;
+  /* 指正在点的链接*/
+}
+@font-face {
+  font-family: 'DigifaceWide';
+  src: url('../fonts/DigifaceWide.ttf');
+}
+
+@font-face {
+  font-family: 'PixelLCD-7';
+  src: url('../fonts/PixelLCD-7.ttf')
+}
+@font-face {
+  font-family: 'FZZ';
+  src: url('../fonts/FZZYJW.ttf')
+}
+.leaflet-bottom,
+.leaflet-top {
+  z-index: 900 !important;
+}

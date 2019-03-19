@@ -1,0 +1,331 @@
+body {
+  font-family: "Microsoft Yahei", "微软雅黑";
+  width: 100%;
+  height: 100%;
+  font-size: 75%;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  min-width: 1200px;
+  min-height: 600px;
+  user-select: none;
+
+  div {
+    box-sizing: border-box;
+  }
+}
+
+/* 主页面 */
+.page {
+  width: 100%;
+  height: calc(~'100% - 68px');
+}
+.pageBlur{
+  -webkit-filter: blur(2px); /* Chrome, Safari, Opera */
+  filter: blur(2px);
+}
+/* 弹窗 */
+#win {
+  position: absolute;
+  top: 68px;
+  z-index: 999;
+}
+
+/* 弹窗-全覆盖*/
+.win-all {
+  position: fixed;
+  left: 0;
+  top: 68px;
+  z-index: 999;
+  width: 100%;
+  height: calc(~'100% - 112px');
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 弹窗-content区域覆盖 */
+.win-content {
+   width: 43%;
+   height: 80%;
+  right: 17.5%;
+  top: 100px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 导航 */
+.nav-wrap {
+  width: 100%;
+  height: 68px;
+  background: url("../img/navbar/nav_bg.png");
+  z-index: 999;
+}
+
+/* app-vue */
+.main-vue {
+  width: 100%;
+  height: 100%;
+  padding-bottom:48px !important;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+
+  /* 菜单目录 */
+  .main-menu {
+    position: relative;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    transition: all 0.2s ease-in; // cubic-bezier(0.2, 0.4, 0, 0);
+    /* 菜单容器 */
+    .menu-wrap {
+      width: 100%;
+      height: 100%;
+      // background: #4B668A;
+      background: rgba(75,102,138,.9);
+      box-shadow: 3px 0 5px rgba(0,0,0,0.4);
+      /* 菜单内容  具体内容样式在各自menus.less下定义*/
+      .menu-main {
+        width: 97%;
+        height: 100%;
+        display: flex;
+        padding: 5px 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        // background: #4B668A;
+        // background: rgba(75,102,138,.8);
+        overflow-y: auto;
+      }
+      /* 显示隐藏开关 */
+      .menu-switch {
+        position: absolute;
+        top: 48%;
+        left: 100%;
+        background: #ff0;
+        cursor: pointer;
+        z-index: 999;
+        /* 显示隐藏开关按钮 */
+        .menu-switch-after {
+          width: 15px;
+          height: 45px;
+          background: #4B668A;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          box-shadow: 3px 0 3px rgba(75,102,138,.9);
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          color: #CCCCCC;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .main-menu-off {
+    margin-left: -20%;
+  }
+  /* 右侧内容部分 */
+  .main-content {
+    height: 100%;
+    width: 80%;
+    padding:10px 5% 0;
+    //3
+    //width: 100%;
+    right: 0;
+    background: #F0F0F0;
+  }
+  /* 右侧内容平铺 */
+  .main-content-open {
+    width: 100%;
+  }
+}
+
+/* 放大缩小图标 */
+.operApp {
+  position: absolute;
+  top: 80px;
+  right: 2%;
+  color: #3CA3E1;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* 上一页，下一页 */
+.optAppIndex {
+  bottom: 5%;
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  // 上下页提示信息
+  .help {
+    i {
+      color: #EA453A;
+      margin-right: 5px;
+    }
+
+    span {
+      color: #4F4F4F;
+      font-size: 14px;
+    }
+  }
+  // 上下页按钮
+  .pageIndex span {
+    display: inline-block;
+    padding: 0 12px;
+    height: 26px;
+    line-height: 26px;
+    border-radius: 15px;
+    background-color: #CEDDE9;
+    text-align: center;
+    font-size: 12px;
+    color: #4F4F4F;
+    opacity: 0.8;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  .pageIndex span::selection {
+    background: transparent;
+  }
+}
+
+// 默认放大样式宽高
+
+.enlargeAppWH {
+  transition: all .3s;
+  width: 100% !important;
+  height: 92% !important;
+}
+
+// 默认panel
+
+.panel {
+  width: 100%;
+  height: 100%;
+
+  .panel-heading {
+    height: 13%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+    .panel-title {
+      font-size: 16px;
+      margin: 0 0 0 10px;
+      color: #4F4F4F;
+      opacity: 0.8;
+      font-weight: normal;
+    }
+  }
+
+  .panel-body {
+    width: 100%;
+    height: 87%;
+    margin: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+.slide-up-leave-active, .slide-up-enter-active {
+  transition: all .2s;
+}
+
+.slide-up-enter, .slide-up-leave-active {
+  transform: rotateY(90deg);
+  opacity: 0
+}
+.winList{
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left:24px;
+  background: url("../../components/common/images/winBg.png") repeat-x 0 0;
+  .winLi{
+    max-width: 164px;
+    min-width: 50px;
+    height: 34px;
+    display: flex;
+    flex:1;
+    .winDiv{
+      width: 140px;
+      min-width: 45px;
+      position: relative;
+      cursor: pointer;
+      background: url("../../components/common/images/b-m.png") repeat-x 0 0;
+      border-radius: 5px;
+      padding-left: 25px;
+      line-height: 34px;
+      font-size: 16px;
+    }
+    .winActive{
+      background: url("../../components/common/images/f-m.png") repeat-x 0 -8px;
+      color: #fff;
+    }
+    .margin_box{
+      flex:1;
+      min-width: 5px;
+      height:34px;
+    }
+  }
+  .green_icon{
+    width: 13px;
+    height: 12px;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    background: url("../../components/common/images/g_circle.png") no-repeat 0 0;
+  }
+  .red_icon{
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 6px;
+    top: 7px;
+    background: url("../../components/common/images/del.png") no-repeat 0 0;
+  }
+}
+.closePopBtn{
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  // background: brown;
+  // background: brown;
+  background: rgba(104, 116, 131, 0.5);
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  z-index: 99;
+  cursor: pointer;
+  &:hover{
+    background: brown;
+  }
+}
